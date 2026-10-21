@@ -1,28 +1,43 @@
-/*
- * x = y assigns x to the value of y
- * x == y is x equal to y
- * x != y true if x is not equal to y; false otherwise
- * x > y true if x is greater than y
- * x < y true if x is less than y
- * x >= y true if x is greater than or equal to y
- * x <= y true if x is less than or equal to y
-*/
+#include <iostream>
+using namespace std;
 
-/*
- + - 	             unary
- * / %
- + - 	             binary
- < <= > >=
- == !=
- = += -= *= /= %=
-*/
+void make_a_bed()
+{ // K & R style, K & R are the initials of the creator of C
+    cout << "make a bed" << endl;
+}
 
-int main(void) {
-    int answer, value1, value2;
-    answer = value1 >= value2;
+void take_a_shower()
+{
+    cout << "take a shower" << endl;
+}
 
-    // Answer would be 1 if the statement is true.
-    // Answer would be 0 if the statement is false.
+void sleep_and_dream()
+{
+    cout << "sleep and dream" << endl;
+}
+
+void feed_the_sheepdogs()
+{
+    cout << "feed the sheepdogs" << endl;
+}
+
+int main(void)
+{
+    int sheep_counter = 134;
+    if (sheep_counter >= 120)
+    {
+        make_a_bed();
+        take_a_shower();
+        sleep_and_dream();
+    }
+    else if (sheep_counter >= 50)
+    {
+        take_a_shower();
+        sleep_and_dream();
+    }
+    else sleep_and_dream();
+
+    feed_the_sheepdogs();
 
     return 0;
 }
