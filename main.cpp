@@ -3,47 +3,51 @@ using namespace std;
 
 void go_for_a_walk()
 {
-    cout << "\n walk";
+    cout << "walk" << endl;
 }
 
 void go_to_the_theater()
 {
-    cout << "\n hahahahaa";
+    cout << "hahahahaa" << endl;
 }
 
 void go_for_lunch()
 {
-    cout << "\n nom nom nom";
+    cout << "nom nom nom" << endl;
 }
 
 void play_chess_at_home()
 {
-    cout << "\n checkmate";
+    cout << "checkmate" << endl;
 }
 
 int main(void)
 {
-    bool weather_good;
-    bool tickets_available;
-    bool table_available;
+    bool weather_good = true;
+    bool tickets_available = false;
+    bool table_available = true;
 
-    cout << "Is the weather good? (true or false): ";
-    cin >> weather_good;
-
-    cout << "\n Are tickets available? (true or false): ";
-    cin >> tickets_available;
-
-    cout << "\n Is there a table available? (true or false): ";
-    cin >> table_available;
-
+    // the way of assembling the if statements is called a cascade
     if (weather_good)
+    {
         go_for_a_walk();
+
+    }
     else if (tickets_available)
+    {
         go_to_the_theater();
+
+    }
     else if (table_available)
+    {
         go_for_lunch();
+
+    }
     else
+    {
         play_chess_at_home();
+
+    }
 
     return 0;
 }
