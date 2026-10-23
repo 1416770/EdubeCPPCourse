@@ -1,26 +1,49 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
 
-// Just like how the << operator is referred to as the insertion operator. The >> operator is referred to as the extraction operator.
+void go_for_a_walk()
+{
+    cout << "\n walk";
+}
 
-// We can use the cin stream along with the extraction operator to transfer human readable data from a console for example to the internal machine representation of the data.
+void go_to_the_theater()
+{
+    cout << "\n hahahahaa";
+}
 
-// cmath must be imported to use math functions like sqrtf (square root float). sqrtf requires a float as specified in its name.
+void go_for_lunch()
+{
+    cout << "\n nom nom nom";
+}
 
-// If you're trying to enter a string with cin when it's expecting an int; it will be 0.
+void play_chess_at_home()
+{
+    cout << "\n checkmate";
+}
 
 int main(void)
 {
-    int number_of_clouds;
-    cout << "Enter the number of clouds: ";
-    cin >> number_of_clouds; // Sets the variable to whatever the user inputs.
-    cout << "\n Number of clouds: " << number_of_clouds;
+    bool weather_good;
+    bool tickets_available;
+    bool table_available;
 
-    float value;
-    cout << "\n Give me a number to find its square root: ";
-    cin >> value;
-    cout << "\n Its square root is: " << sqrtf(value);
+    cout << "Is the weather good? (true or false): ";
+    cin >> weather_good;
+
+    cout << "\n Are tickets available? (true or false): ";
+    cin >> tickets_available;
+
+    cout << "\n Is there a table available? (true or false): ";
+    cin >> table_available;
+
+    if (weather_good)
+        go_for_a_walk();
+    else if (tickets_available)
+        go_to_the_theater();
+    else if (table_available)
+        go_for_lunch();
+    else
+        play_chess_at_home();
 
     return 0;
 }
