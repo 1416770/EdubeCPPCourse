@@ -1,43 +1,30 @@
 #include <iostream>
+#include <iomanip>
+
 using namespace std;
 
-void make_a_bed()
-{ // K & R style, K & R are the initials of the creator of C
-    cout << "make a bed" << endl;
-}
+/*
+<< is insertion operator. The arrows show the direction.
+endl ends a line.
 
-void take_a_shower()
-{
-    cout << "take a shower" << endl;
-}
+hex (hexadecimal) is a manipulator. A manipulator is a special entity that tells the stream that the data form has to be changed immediately. A manipulator changes the output streams property called basefield. A manipulator won't stop working until cancelled out by another manipulator; even after the end of the cout statement. It works from the position it was placed.
 
-void sleep_and_dream()
-{
-    cout << "sleep and dream" << endl;
-}
+There are other manipulators too such as dec (decimal) and oct (octal). Decimal is the default manipulator for output streams.
 
-void feed_the_sheepdogs()
-{
-    cout << "feed the sheepdogs" << endl;
-}
+setbase(x) is another way at manipulating the output stream. 8 is for octal, 10 for decimal and 16 for hexadecimal. setbase(x) also requires the import of iomanip; using oct, hex and dec don't.'
+*/
 
 int main(void)
 {
-    int sheep_counter = 134;
-    if (sheep_counter >= 120)
-    {
-        make_a_bed();
-        take_a_shower();
-        sleep_and_dream();
-    }
-    else if (sheep_counter >= 50)
-    {
-        take_a_shower();
-        sleep_and_dream();
-    }
-    else sleep_and_dream();
+    int herd_size = 110; // decimal
+    cout << "sheep counted: " << herd_size << endl; // decimal
+    cout << "herd size in hex: " << hex << herd_size << endl; // hex
 
-    feed_the_sheepdogs();
+    int test = herd_size; // hex
+    cout << test << endl; // hex
+    cout << dec << test << endl; // decimal
+
+    cout << setbase(8) << herd_size << endl; // octal
 
     return 0;
 }
