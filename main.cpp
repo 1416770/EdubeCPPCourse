@@ -1,53 +1,63 @@
 #include <iostream>
 using namespace std;
 
-void go_for_a_walk()
-{
-    cout << "walk" << endl;
-}
+/* https://learn.microsoft.com/en-us/cpp/cpp/data-type-ranges?view=msvc-170
+ Type Name 	Bytes 	Other Names 	Range of Values
+ int 	4 	signed 	-2,147,483,648 to 2,147,483,647
+ unsigned int 	4 	unsigned 	0 to 4,294,967,295
+ __int8 	1 	char 	-128 to 127
+ unsigned __int8 	1 	unsigned char 	0 to 255
+ __int16 	2 	short, short int, signed short int 	-32,768 to 32,767
+ unsigned __int16 	2 	unsigned short, unsigned short int 	0 to 65,535
+ __int32 	4 	signed, signed int, int 	-2,147,483,648 to 2,147,483,647
+ unsigned __int32 	4 	unsigned, unsigned int 	0 to 4,294,967,295
+ __int64 	8 	long long, signed long long 	-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+ unsigned __int64 	8 	unsigned long long 	0 to 18,446,744,073,709,551,615
+ bool 	1 	none 	false or true
+ char 	1 	none 	-128 to 127 by default
 
-void go_to_the_theater()
-{
-    cout << "hahahahaa" << endl;
-}
+ 0 to 255 when compiled by using /J
+ signed char 	1 	none 	-128 to 127
+ unsigned char 	1 	none 	0 to 255
+ short 	2 	short int, signed short int 	-32,768 to 32,767
+ unsigned short 	2 	unsigned short int 	0 to 65,535
+ long 	4 	long int, signed long int 	-2,147,483,648 to 2,147,483,647
+ unsigned long 	4 	unsigned long int 	0 to 4,294,967,295
+ long long 	8 	none (but equivalent to __int64) 	-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+ unsigned long long 	8 	none (but equivalent to unsigned __int64) 	0 to 18,446,744,073,709,551,615
+ enum 	varies 	none
+ float 	4 	none 	3.4E +/- 38 (seven digits)
+ double 	8 	none 	1.7E +/- 308 (fifteen digits)
+ long double 	same as double 	none 	Same as double
+ wchar_t 	2 	__wchar_t 	0 to 65,535
+*/
 
-void go_for_lunch()
-{
-    cout << "nom nom nom" << endl;
-}
-
-void play_chess_at_home()
-{
-    cout << "checkmate" << endl;
-}
+// Long is used to specify that we need a wider range of ints than the standard one.
+// Short is used to determine that we need a shorter range of ints than the standard one.
+// Unsigned says the variable will only contain positive numbers which will get us more range too.
 
 int main(void)
 {
-    bool weather_good = true;
-    bool tickets_available = false;
-    bool table_available = true;
+    char little_counter = 0;
+    unsigned char little_counter2 = 0;
 
-    // the way of assembling the if statements is called a cascade
-    if (weather_good)
-    {
-        go_for_a_walk();
+    short int counter;
+    short counter2;
 
-    }
-    else if (tickets_available)
-    {
-        go_to_the_theater();
+    long int ants;
+    long ants2;
 
-    }
-    else if (table_available)
-    {
-        go_for_lunch();
+    unsigned int positive;
+    unsigned positive2;
 
-    }
-    else
-    {
-        play_chess_at_home();
+    unsigned long int big_number;
+    unsigned long big_number2;
 
-    }
+    unsigned short int lambs;
+    unsigned short lambs2;
+
+    float my_float = 1.41; // Float stores 8 precise digits.
+    double my_precise_float = 1231.21; // Doubles are double the precision of float.
 
     return 0;
 }
