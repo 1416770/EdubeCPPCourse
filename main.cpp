@@ -3,27 +3,17 @@ using namespace std;
 
 int main(void)
 {
-    unsigned short int counter = 5;
-    while (counter)
+    unsigned short int counter = 99;
+    while (--counter)
     {
-        cout << "Counter: " << counter-- << endl;
-    }
+        cout << counter << endl;
 
-    counter = 5;
-    do
-    {
-        cout << "Counter: " << counter-- << endl;
-    } while (counter);
-    
-    for (unsigned short int index = 0; index < 100; index++)
-    {
-        cout << "Counter: " << index << endl;
-    }
+        if (counter % 50 != 0) continue; // Continue continues to the next iteration of the loop.
 
-    for ( ; ; ) // Infinite loop singularity?
-    {
-        cout << "We're all just blocking the street!";
-    } 
+        cout << "Multiple of 50!" << endl;
+
+        break; // Break breaks out of the loop.
+    }
 
     return 0;
 }
