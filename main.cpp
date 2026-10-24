@@ -3,9 +3,27 @@ using namespace std;
 
 int main(void)
 {
-    bool george_boole = true;
+    unsigned short int counter = 5;
+    while (counter)
+    {
+        cout << "Counter: " << counter-- << endl;
+    }
 
-    cout << !george_boole; // 0 (! means not so not true is false and not false is true, true is 1 and false is 0)
+    counter = 5;
+    do
+    {
+        cout << "Counter: " << counter-- << endl;
+    } while (counter);
+    
+    for (unsigned short int index = 0; index < 100; index++)
+    {
+        cout << "Counter: " << index << endl;
+    }
+
+    for ( ; ; ) // Infinite loop singularity?
+    {
+        cout << "We're all just blocking the street!";
+    } 
 
     return 0;
 }
