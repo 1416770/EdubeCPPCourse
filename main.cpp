@@ -1,24 +1,25 @@
 #include <iostream>
 using namespace std;
 
+/*
+If you declare a pointer like "type *pointer" then pointer is of type "type*" and "*" is of type "type".
+Don't ever dereference a NULL pointer or explosion.
+*/
+
 int main(void)
 {
-    struct BIRTH_DATE
-    {
-        int day;
-        int month;
-        int year;
-    };
+    // Creates a variable and a pointer.
+    int myVariable, *variablePointer;
+    myVariable = 2; // Assigns 2 to the variable.
+    variablePointer = &myVariable; // The pointer is now the memory address of the variable.
 
-    struct PERSON
-    {
-        string name;
-        int age;
-        BIRTH_DATE birth_date;
-    };
+    cout << variablePointer << endl; // Outputs the memory address of myVariable.
+    cout << *variablePointer << endl; // Grabs the value at the memory address.
 
-    struct PERSON me = {"1416770", 18, {6, 4, 2008}};
-    cout << me.birth_date.year << endl;
- 
+    *variablePointer = 4;
+
+    cout << myVariable << endl; // myVariable is now 4!
+    cout << sizeof(*variablePointer) << endl; // The size of myVariable in bytes.
+
     return 0;
 }
