@@ -1,25 +1,18 @@
 #include <iostream>
 using namespace std;
 
-/*
-If you declare a pointer like "type *pointer" then pointer is of type "type*" and "*" is of type "type".
-Don't ever dereference a NULL pointer or explosion.
-*/
-
 int main(void)
 {
-    // Creates a variable and a pointer.
-    int myVariable, *variablePointer;
-    myVariable = 2; // Assigns 2 to the variable.
-    variablePointer = &myVariable; // The pointer is now the memory address of the variable.
+    int *ptr1, *ptr2, array[3], i;
+    ptr1 = array; // Points to the first element of the array (index 0).
+    ptr2 = ptr1; // Same as above now.
+    cout << (ptr1 == ptr2) << endl; // True.
 
-    cout << variablePointer << endl; // Outputs the memory address of myVariable.
-    cout << *variablePointer << endl; // Grabs the value at the memory address.
+    ptr1++; // Pointer 1 is now the second element of the array (index 1).
+    cout << (*ptr1 == array[1]) << endl; // True.
 
-    *variablePointer = 4;
-
-    cout << myVariable << endl; // myVariable is now 4!
-    cout << sizeof(*variablePointer) << endl; // The size of myVariable in bytes.
-
+    ptr1--;
+    cout << (*ptr1 == array[0]) << endl; // True.
+    
     return 0;
 }
