@@ -3,27 +3,22 @@ using namespace std;
 
 int main(void)
 {
-    struct STUDENT
+    struct BIRTH_DATE
+    {
+        int day;
+        int month;
+        int year;
+    };
+
+    struct PERSON
     {
         string name;
-        float time;
-        int recent_chapter;
+        int age;
+        BIRTH_DATE birth_date;
     };
 
-    struct STUDENT students[100000];
-    students[0].name = "1416770";
-    students[0].time = 43.0;
-    students[0].recent_chapter = 2914;
-
-    struct DATE
-    {
-        int year, month, day;
-    };
-
-    DATE date_of_birth;
-    date_of_birth.day = 6;
-    date_of_birth.month = 4;
-    date_of_birth.year = 2008;
+    struct PERSON me = {"1416770", 18, {6, 4, 2008}};
+    cout << me.birth_date.year << endl;
  
     return 0;
 }
