@@ -1,18 +1,29 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
+
+int get_911_fatalities(void)
+{
+    return 2977;
+}
+
+int round_number(float number)
+{
+    return round(number);
+}
+
+int round_number(float number, float number2) // function overloading
+{
+    return round(number + number2);
+}
 
 int main(void)
 {
-    int *ptr1, *ptr2, array[3], i;
-    ptr1 = array; // Points to the first element of the array (index 0).
-    ptr2 = ptr1; // Same as above now.
-    cout << (ptr1 == ptr2) << endl; // True.
+    int fatalities = get_911_fatalities();
 
-    ptr1++; // Pointer 1 is now the second element of the array (index 1).
-    cout << (*ptr1 == array[1]) << endl; // True.
+    cout << fatalities << endl; // 2977
+    cout << round_number(41.412) << endl; // 41
+    cout << round_number(32.43, 43.23) << endl; // 76
 
-    ptr1--;
-    cout << (*ptr1 == array[0]) << endl; // True.
-    
     return 0;
 }
