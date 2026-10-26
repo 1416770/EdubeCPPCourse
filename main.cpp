@@ -1,72 +1,49 @@
 #include <iostream>
 using namespace std;
 
-// When you have two functions with the same name it's referred to as function overloading.
-// As long as both the functions have different parameters it works.
-// It means you can have multiple versions of the same function.
-void greet(void)
+/*
+Inline functions execute way faster than normal functioms however they're only to be used when
+the function has only 1 - 3 lines of code.
+
+The way inline functions work is the compiler copies the body of the function to the point
+of each function call at compile time. This can affect file size after compilation so
+it's important to only use inline functions for small functions. They do benefit the coder
+a lot for small functions that are called frequently. Drastically speeding up the code.
+
+During function calls, a lot of overhead tasks are done. Functions make it easier to reuse
+code and make things more modular and easier to understand. The side effect is of course
+the effect they have on speed.
+*/
+
+inline void inline_function()
 {
-    cout << "Welcome aboard lad!" << endl;
+    cout << "main --> function --> main" << endl;
 }
 
-void greet(int ego_size)
+void normal_function()
 {
-    for (int index = 0; index < ego_size; index++)
-    {
-        greet();
-    }
+    cout << "main --> prologue --> function --> epilogue --> main" << endl;
 }
 
-// Without the & symbol the parameter only holds the value of the variable you passed in.
-void pass_by_value(int param) 
+inline void good_inline_use() // 1 - 3 lines.
 {
-    param++;
+    cout << "yes sir" << endl;
+    cout << "yes sir" << endl;
+    cout << "yes sir" << endl;
 }
 
-// By adding the & symbol the parameter becomes a variable to the variable you passed in.
-// References allow the function to modify the original variable.
-void pass_by_reference(int &param)
+void good_normal_use() // 4+ lines.
 {
-    param++;
-}
-
-// Passing by pointer is how you pass_by_reference in C since C doesn't have anything like references.
-// Prefer references but this works too.
-void pass_by_pointer(int *pointer)
-{
-    // For some reason you can't just do *pointer++;
-    *pointer = *pointer + 1;
-}
-
-// By using the assignment operator after a parameter you can declare a default value.
-// This means you don't need to pass a value to the function parameter.
-void say_message(string message = "hi")
-{
-    cout << message << endl;
+    cout << "say wallahi" << endl;
+    cout << "say wallahi" << endl;
+    cout << "say wallahi" << endl;
+    cout << "say wallahi" << endl;
 }
 
 int main(void)
 {
-    int ego_size;
-    cout << "How big is your ego?: ";
-    cin >> ego_size;
-    greet(ego_size);
-
-    int chinese = 43;
-    cout << "Chinese: " << chinese << endl;
-
-    pass_by_value(chinese);
-    cout << "Chinese after pass_by_value: " << chinese << endl;
-
-    pass_by_reference(chinese);
-    cout << "Chinese after pass_by_reference: " << chinese << endl;
-
-    int *chinese_pointer = &chinese;
-    pass_by_pointer(chinese_pointer);
-    cout << "Chinese after pass_by_pointer: " << chinese << endl;
-
-    say_message();
-    say_message("grrr mondays");
+    inline_function();
+    normal_function();
 
     return 0;
 }
