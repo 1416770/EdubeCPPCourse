@@ -1,29 +1,72 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
 
-int get_911_fatalities(void)
+// When you have two functions with the same name it's referred to as function overloading.
+// As long as both the functions have different parameters it works.
+// It means you can have multiple versions of the same function.
+void greet(void)
 {
-    return 2977;
+    cout << "Welcome aboard lad!" << endl;
 }
 
-int round_number(float number)
+void greet(int ego_size)
 {
-    return round(number);
+    for (int index = 0; index < ego_size; index++)
+    {
+        greet();
+    }
 }
 
-int round_number(float number, float number2) // function overloading
+// Without the & symbol the parameter only holds the value of the variable you passed in.
+void pass_by_value(int param) 
 {
-    return round(number + number2);
+    param++;
+}
+
+// By adding the & symbol the parameter becomes a variable to the variable you passed in.
+// References allow the function to modify the original variable.
+void pass_by_reference(int &param)
+{
+    param++;
+}
+
+// Passing by pointer is how you pass_by_reference in C since C doesn't have anything like references.
+// Prefer references but this works too.
+void pass_by_pointer(int *pointer)
+{
+    // For some reason you can't just do *pointer++;
+    *pointer = *pointer + 1;
+}
+
+// By using the assignment operator after a parameter you can declare a default value.
+// This means you don't need to pass a value to the function parameter.
+void say_message(string message = "hi")
+{
+    cout << message << endl;
 }
 
 int main(void)
 {
-    int fatalities = get_911_fatalities();
+    int ego_size;
+    cout << "How big is your ego?: ";
+    cin >> ego_size;
+    greet(ego_size);
 
-    cout << fatalities << endl; // 2977
-    cout << round_number(41.412) << endl; // 41
-    cout << round_number(32.43, 43.23) << endl; // 76
+    int chinese = 43;
+    cout << "Chinese: " << chinese << endl;
+
+    pass_by_value(chinese);
+    cout << "Chinese after pass_by_value: " << chinese << endl;
+
+    pass_by_reference(chinese);
+    cout << "Chinese after pass_by_reference: " << chinese << endl;
+
+    int *chinese_pointer = &chinese;
+    pass_by_pointer(chinese_pointer);
+    cout << "Chinese after pass_by_pointer: " << chinese << endl;
+
+    say_message();
+    say_message("grrr mondays");
 
     return 0;
 }
