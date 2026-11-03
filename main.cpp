@@ -1,21 +1,29 @@
 #include <iostream>
 using namespace std;
 
-// Void indicates nothing. This function returns nothing and takes nothing.
-void voidy(void)
-{
+// The "new" keyword is used to request the creation of a new memory block.
+// This returns a pointer. You also need to specify the size when using this with arrays.
 
-}
+// The "delete" keyword is used to hand the memory back to the operating system.
+
+// You only really need to use new and delete if the lifetime of a variable is not defined by its scope.
+// Or if the size of something is not known at compile time.
 
 int main(void)
 {
-    int inty = 34;
+    int *number = new int;
+    delete number;
 
-    // You can use "void" for when you're not sure what the type will be. It lets you assign any type.
-    void *pointy;
-    pointy = &inty;
+    float *array = new float[20];
+    delete []array;
 
-    cout << pointy << endl;
+    float *floaty_fish = new float[5];
+    for (int index = 0; index < 5; index++)
+    {
+        floaty_fish[index] = index * index;
+        cout << floaty_fish[index] << endl;
+    }
+    delete []floaty_fish;
 
     return 0;
 }
