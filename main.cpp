@@ -3,24 +3,16 @@ using namespace std;
 
 int main(void)
 {
-    int rows, columns;
-    cout << "How many rows?: ";
-    cin >> rows;
-    cout << "How many columns?: ";
-    cin >> columns;
+    long data = 1L; // Literal. You can use this to avoid conversion.
 
-    // A pointer to an array filled with pointers to more arrays with integers?
-    int** pointer_array = new int*[rows];
-    for (int row = 0; row < rows; row++)
-    {
-        pointer_array[row] = new int[columns];
-        cout << "Row: " << pointer_array[row] << endl;
+    // Implicit conversions are automatic from the compiler.
+    // Explicit conversions (typecasting) are performed by the developer.
 
-        for (int column = 0; column < columns; column++)
-        {
-            cout << "Column: " << pointer_array[row][column] << endl;
-        }
-    }
+    int inty_winty = 5;
+    float floaty_woaty = float(inty_winty); // TYPE CASTING 🥳
+    float this_works_too = inty_winty;
+
+    cout << inty_winty << " " << floaty_woaty << " " << this_works_too << "!" << endl;
 
     return 0;
 }
